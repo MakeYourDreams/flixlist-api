@@ -1,0 +1,64 @@
+{{!-- <h2>Signup</h2>
+
+<form class="auth-form" action="/auth/signup" method="POST" id="form-container">
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username" placeholder="JonSnow">
+
+  <br><br>
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="Your password">
+  <br>
+  {{#if message }}
+  <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+</form> --}}
+
+
+
+<div class="login-form">
+
+    <form action="/auth/signup" method="post" id="form-container">
+
+     
+
+        <h2 class="text-center" style="padding-bottom: 1vw">Sing up</h2>
+        {{!-- Display messages --}}
+           {{#if message}}
+            <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{message}}
+            </div>
+            {{/if}}
+        {{!-- END Display messages --}}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" required="required">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" required="required">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone number" required="required">
+        </div>
+
+        <div class="form-group">
+            <input type="email" id="username" name="username" class="form-control" placeholder="E-mail" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password"  name="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="" class="pull-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <p class="text-center"><a href="/auth/login">Log in to my Account</a></p>
+</div>

@@ -1,0 +1,141 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <img src="../../images/default-user-image.png" class="card-img-top" style="height: 15rem;" alt="...">
+        <div class="card-body" id="indexUser">
+          <h5 class="card-title">{{oneUser.firstName}} {{oneUser.lastName}}</h5>
+          
+        </div>
+        <ul class="list-group list-group-flush">
+          
+          <li class="list-group-item" style="border-top-width: 1px !important;"><ion-icon name="mail-outline"> </ion-icon>  {{oneUser.username}}</li>
+          <li class="list-group-item"><ion-icon name="call-outline"> </ion-icon>  {{oneUser.phone}}</li>
+ 
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Edit Profile</a>
+         
+        </div>
+      </div>
+
+      {{!-- reminders done --}}
+
+      <ul class="list-group" style="margin-top: 2vh;">
+        {{#each tasks}}
+
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{this.subjet}}
+            <span class="badge badge-primary badge-pill">Done</span>
+          </li>
+
+         {{/each}}
+      
+      </ul>
+
+      {{!-- END reminders done --}}
+    </div>
+    <div class="col-md-9">
+      
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+          Recent reminders
+        </a>
+        {{#each tasks}}
+        <a href="/tasks/edit-task/{{this._id}}" class="list-group-item list-group-item-action"><strong>{{this.subjet}}</strong> <br> {{this.message}}</a>
+        {{/each}}
+      </div>
+
+      {{!-- comments --}}
+      <div class="panel panel-default widget comments-box">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-comment"></span>
+                <h3 class="panel-title">
+                    Recent Comments</h3>
+                <span class="label label-info">
+                    </span>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+
+                    
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-3 col-md-2">
+                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
+                            <div class="col-xs-9 col-md-10">
+                                <div>
+                                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/4ldn">Sugested reminder</a>
+                                    <div class="mic-info">
+                                        By: <a href="#">{{allComments.owner}}</a> on {{allComments.date}}
+                                    </div>
+                                </div>
+                                <div class="comment-text">
+                                    {{allComments.message}}
+                                </div>
+                                {{!-- <div class="action">
+                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+                
+            </div>
+        </div>
+        
+
+        {{!-- comments section --}}
+          <div class="pb-cmnt-container">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-3">
+                    <div class="panel panel-info">
+                        <div class="panel-body">
+                            <form action="../../comments/post-comment" class="form-inline" method="POST">
+                                <textarea id="message" name="message" placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                                <input type="hidden" id="autor" name="autor" value="{{currentUser.firstName}} {{currentUser.lastName}}">
+                                <input type="hidden" id="owner" name="owner" value="{{currentUser.username}}">
+                                <input type="hidden" id="para" name="para" value="{{oneUser._id}}">
+                                <input type="hidden" id="date" name="date" value="{{date}}">
+                                <input type="hidden" id="time" name="time" value="{{time}}">
+                              
+                              <button class="btn btn-primary pull-right" type="submit" style="margin-top:1vh">Send comment</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- END comments section --}}
+
+
+
+
+
+      
+    </div>
+  </div>
+</div>
+
+<script>
+
+  let today = new Date();
+  let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  let dateTime = date+' '+time;
+
+</script>
+
+       

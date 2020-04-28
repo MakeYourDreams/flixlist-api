@@ -1,0 +1,76 @@
+
+{{!-- notificaciones --}}
+
+{{#if updated}}
+
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">We just Updated!</h4>
+  <p class="mb-0">Reminder successful updated!</a></p>
+</div>
+
+{{/if}}
+
+
+
+
+<a href="tasks/new-task" class="btn btn-success" style="color:white; margin: 0px 0 25px 0">Add new reminder</a>
+
+
+
+
+{{!-- Tabla de tareas activas --}}
+<table class="table">
+  <h2 style="padding: 10px 0 10px 0;">Active reminders</h2>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Date and time</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {{#each tasks}}
+    <tr>
+  
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.subjet}}</td>
+      <td style="max-width: 20vw;">{{this.phone}}</td>
+      <td>{{this.date}} - {{this.time}}</td>
+      <td><a class="btn btn-primary" href="./tasks/edit-task/{{this.id}}">Edit</a> <a class="btn btn-danger" style="margin-left: 10px;" href="/tasks/delete/{{this.id}}">Delete</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
+{{!-- Tabla de tareas hechas --}}
+{{!-- <table class="table">
+  <h2 style="padding: 10px 0 10px 0;">Done reminders</h2>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Date and time</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {{#each tasks}}
+    <tr>
+  
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.subjet}}</td>
+      <td style="max-width: 20vw;">{{this.phone}}</td>
+      <td>{{this.date}} - {{this.time}}</td>
+      <td><a class="btn btn-primary" href="./tasks/edit-task/{{this.id}}">Edit</a> <a class="btn btn-danger" style="margin-left: 10px;" href="/tasks/delete/{{this.id}}">Delete</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table> --}}
+

@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+
+      {{#each allUsers}}
+
+      <div class="col-md-3">
+
+          <div class="card" style="width: 100%; margin-top:4vh">
+          <img class="card-img-top" src="../../images/default-user-image.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{this.firstName}} {{this.lastName}}</h5>
+            
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{this.username}}</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="users/profile/{{this._id}}" class="card-link">See profile</a>
+          </div>
+        </div>
+
+      </div>
+
+
+      {{/each}}
+
+  </div>
+</div>
