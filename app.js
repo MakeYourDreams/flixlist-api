@@ -95,7 +95,7 @@ app.locals.slogan = "The best app to remind you"
 app.use('/', require('./routes/index'));
 app.use("/auth", require("./routes/auth"));
 app.use("/tasks", require("./routes/task-routes/task"));
-app.use("/users", require("./routes/user-routes/user"));
+app.use("/favorites", require("./routes/favorite"));
 app.use("/comments", require("./routes/comments-routes/comments"));
 
 

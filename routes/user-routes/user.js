@@ -1,7 +1,6 @@
 const express = require('express');
 const router  = express.Router();
 const user = require('../../models/User')
-const comments = require('../../models/comments')
 
 /* GET home page */
 router.get('/edit', (req, res, next) => {
@@ -85,6 +84,8 @@ router.get('/profile/:id', (req, res, next) => {
 
 // })
 
+
+
 //Get favorites from user
 router.get('/getfavorites/:id', (req, res, next) => {
 
@@ -98,11 +99,12 @@ router.get('/getfavorites/:id', (req, res, next) => {
 });
 
 //Add favorites to user
-router.get('/favorites/:id&:movID', (req, res, next) => {
+router.post('/addfavorites/:id', (req, res, next) => {
 
   const userID = { username:req.params.id}
-  const movID = req.params.movID
-  user.findOneAndUpdate(userID, {$push: {favorites: movID}})
+  // const movID = req.params.movID
+  const singleMovie = req.body;
+  user.findOneAndUpdate(userID, {$push: {favorites: singleMovie}})
   // user.findByIdAndUpdate("5ea13dfac0c506091897f1b0", { $push: { userBoards: userID } }).exec()
     .then(UserFromDB => {
       return res.status(200).send(UserFromDB)
