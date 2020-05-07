@@ -15,10 +15,6 @@ const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
 //Twilio call
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
-const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const schedule = require('node-schedule-tz');
 
 mongoose
