@@ -7,7 +7,7 @@ const filter = require('../models/Filters')
 router.get('/getfilters/:id', (req, res, next) => {
 
   const userID = { username:req.params.id}
-  favorite.findOne(userID)
+  filter.findOne(userID)
     .then(UserFromDB => {
       return res.status(200).send(UserFromDB.filters)
   })
