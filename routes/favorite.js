@@ -9,7 +9,7 @@ router.get('/getfilters/:id', (req, res, next) => {
   const userID = { username:req.params.id}
   filter.findOne(userID)
     .then(UserFromDB => {
-      return res.status(200).send(UserFromDB.filters)
+      return res.status(200).send(UserFromDB)
   })
 
       .catch(err => next(err));
